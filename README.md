@@ -1,6 +1,6 @@
 # Documentação Técnica — Calculadoras Tributárias
 
-**Versão:** 4.5**Formato:** arquivo único `CALCULADORAS TRIBUTARIAS v4.5.html`**Atualizado para a legislação vigente em:** 2026
+**Versão:** 5.0**Formato:** arquivo único `CALCULADORAS TRIBUTARIAS v5.0.html`**Atualizado para a legislação vigente em:** 2026
 
 * * *
 
@@ -207,7 +207,8 @@ Caixa de texto ao lado do título, para identificar a que caso se referem os cá
 ### 4.6 Outros
 
 * **Impressão:** botão "Imprimir" gera versão em tema claro, ocultando os botões de ação (Salvar/Imprimir) e a barra de abas; o título do caso é impresso como texto.
-* **Rodapé:** exibe a versão da calculadora em todas as abas.
+* **Rodapé:** exibe a versão da calculadora em todas as abas, com link para a documentação técnica (README do repositório no GitHub).
+* **Página inicial:** ao abrir, exibe uma tela de apresentação (que não é uma aba) orientando a escolher a calculadora; some ao selecionar qualquer aba. Arquivos salvos abrem direto na aba do caso.
 
 * * *
 
@@ -260,6 +261,11 @@ Segurado especial: mantém 1,50%.
 * * *
 
 ## 7. Histórico de versões
+
+**v5.0**
+
+* Página inicial de apresentação (não é uma aba): ao abrir a ferramenta, mostra uma tela orientando a escolher a calculadora, com atalhos para cada uma; desaparece ao selecionar qualquer aba (arquivos salvos abrem direto na aba do caso).
+* Rodapé de versão passou a linkar a documentação técnica (README do projeto no GitHub).
 
 **v4.5**
 
