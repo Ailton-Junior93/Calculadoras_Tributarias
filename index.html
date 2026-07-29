@@ -132,6 +132,13 @@
   a:hover{opacity:.85;}
   .topbar input{font-size:13px;padding:5px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--canvas-subtle);color:var(--txt);}
   .rodape{text-align:center;color:var(--mut);font-size:11px;margin-top:30px;padding-top:14px;border-top:1px solid var(--bd-muted);}
+  .home-wrap{max-width:780px;margin:6px auto;text-align:center;padding:20px 8px 8px;}
+  .home-wrap h2{font-size:22px;color:var(--head);margin:0 0 10px;letter-spacing:.3px;}
+  .home-wrap p{color:var(--mut);font-size:14px;line-height:1.7;margin:0 0 6px;}
+  .home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:22px 0 14px;text-align:left;}
+  .homeCard{padding:13px 15px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--head);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;}
+  .homeCard:hover{border-color:var(--accent);background:var(--canvas-subtle);}
+  .homeCard span{display:block;color:var(--mut);font-weight:400;font-size:11.5px;margin-top:4px;line-height:1.4;}
   @media print{
     :root{--bg:#ffffff;--canvas-subtle:#f6f8fa;--card:#ffffff;--bd:#d0d7de;--bd-muted:#d8dee4;
       --txt:#1f2328;--head:#1f2328;--mut:#59636e;--accent:#0969da;--danger:#cf222e;}
@@ -164,9 +171,28 @@
     <button class="tab" data-tab="t7">Serv. Méd. X Serv. Hospitalar</button>
     <button class="tab" data-tab="t3">Simples Nacional</button>
     <button class="tab" data-tab="t1">Ganho de Capital (Imóveis)</button>
-    <button class="tab active" data-tab="t4">IRPF Locação</button>
+    <button class="tab" data-tab="t4">IRPF Locação</button>
     <button class="tab" data-tab="t5">IRPF Produtor Rural</button>
     <button class="tab" data-tab="t6">IRPF-Mínimo</button>
+  </div>
+
+  <!-- PÁGINA INICIAL (não é uma aba) -->
+  <div class="panel active" id="home">
+    <div class="home-wrap">
+      <h2>Calculadoras Tributárias</h2>
+      <p>Ferramenta de apoio para estimativas de tributos, com memória de cálculo auditável e fundamentação legal.</p>
+      <p><strong>Selecione abaixo — ou na barra de abas acima — a calculadora desejada:</strong></p>
+      <div class="home-grid">
+        <button class="homeCard" data-tab="t2">Lucro Presumido – PJ<span>IRPJ, CSLL, PIS, COFINS · majoração LC 224/2025</span></button>
+        <button class="homeCard" data-tab="t7">Serv. Méd. × Serv. Hospitalar<span>Comparativo presunção 8%/12% × 32%/32%</span></button>
+        <button class="homeCard" data-tab="t3">Simples Nacional<span>Alíquota efetiva e DAS · Fator R · CNAE</span></button>
+        <button class="homeCard" data-tab="t1">Ganho de Capital (Imóveis)<span>IRPF na alienação · fatores FR1/FR2</span></button>
+        <button class="homeCard" data-tab="t4">IRPF Locação<span>Carnê-leão · tabela mensal 2026</span></button>
+        <button class="homeCard" data-tab="t5">IRPF Produtor Rural<span>Atividade rural · Funrural · IRPF-Mínimo</span></button>
+        <button class="homeCard" data-tab="t6">IRPF-Mínimo<span>Tributação mínima das altas rendas</span></button>
+      </div>
+      <p style="font-size:12px;">Preencha os campos e use o botão <strong>Salvar</strong> para guardar o caso e continuar depois.</p>
+    </div>
   </div>
 
   <!-- ABA 1 -->
@@ -323,7 +349,7 @@
   </div>
 
   <!-- ABA 4 -->
-  <div class="panel active" id="t4">
+  <div class="panel" id="t4">
     <div class="bar">
       <label>Locatário</label>
       <select id="irLoc" style="width:auto;">
@@ -606,7 +632,7 @@
       <strong>Demais tributos.</strong> IRPJ 15% e adicional de 10% sobre a base que exceder R$ 20.000 × nº de meses; CSLL 9%; PIS 0,65% e COFINS 3% (cumulativos) sobre a receita bruta. <strong>ISS</strong> — serviços hospitalares: alíquota municipal (2% a 5%) sobre a receita; serviços profissionais (sociedade uniprofissional): valor fixo por profissional, informado conforme o período. Estimativa — confira a legislação do município.
     </p>
   </div>
-  <div class="rodape">Calculadoras Tributárias · versão 4.5</div>
+  <div class="rodape">Calculadoras Tributárias · <a href="https://github.com/Ailton-Junior93/Calculadoras_Tributarias#readme" target="_blank" rel="noopener">versão 5.0 · documentação técnica</a></div>
 </div>
 <script>
 (function(){
@@ -1353,6 +1379,7 @@ var CNAE_SN={'3250706':{d:'Serviços de prótese dentária',a:'fatorR'},'3250709
   }
   var _sb=document.getElementById('salvarBtn'); if(_sb)_sb.addEventListener('click',salvar);
 
+  document.querySelectorAll('.homeCard').forEach(function(b){b.addEventListener('click',function(){var tb=document.querySelector('.tab[data-tab="'+b.getAttribute('data-tab')+'"]');if(tb)tb.click();});});
   var _st=(window.__ESTADO__||null);
   if(_st){ if(_st.gc&&_st.gc.length){gc.length=0;_st.gc.forEach(function(x){gc.push(x);});} if(_st.lp&&_st.lp.length){lp.length=0;_st.lp.forEach(function(x){lp.push(x);});} }
   /* ===== ABA 7: Serv. Méd. x Serv. Hospitalar (lucro presumido comparado) ===== */
